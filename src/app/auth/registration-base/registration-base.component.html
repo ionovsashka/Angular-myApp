@@ -1,0 +1,69 @@
+<div class="registration">
+  <form class="registration__container" [formGroup]="registration" (ngSubmit)="submit()">
+    <div class="registration__base">
+      <h2 class="registration__title">Основная информация</h2>
+      <p class="registration__fieldname">Имя</p>
+      <input [class.submitted]="submitted" type="text" class="registration__field" formControlName="name" placeholder="Введите ваше имя*">
+      <div
+        class="registration__validation"
+        *ngIf="registration.get('name').invalid && submitted"
+      >
+        <small *ngIf="registration.get('name').errors.required">Поле обязательно для заполнения</small>
+      </div>
+      <p class="registration__fieldname">Фамилия</p>
+      <input [class.submitted]="submitted" type="text" class="registration__field" formControlName="surname" placeholder="Введите вашу фамилию*">
+      <div
+        class="registration__validation"
+        *ngIf="registration.get('surname').invalid && submitted"
+      >
+        <small *ngIf="registration.get('surname').errors.required">Поле обязательно для заполнения</small>
+      </div>
+      <p class="registration__fieldname">Логин</p>
+      <input [class.submitted]="submitted" type="text" class="registration__field" formControlName="accName" placeholder="Введите логин">
+      <div
+        class="registration__validation"
+        *ngIf="registration.get('accName').invalid && submitted"
+      >
+        <small *ngIf="registration.get('accName').errors.required">Поле обязательно для заполнения</small>
+        <small *ngIf="registration.get('accName').errors.loginMatch">Данный логин уже занят</small>
+      </div>
+      <p class="registration__fieldname">Пароль</p>
+      <input [class.submitted]="submitted" type="password" class="registration__field" formControlName="password" placeholder="Введите пароль*">
+      <div
+        class="registration__validation"
+        *ngIf="registration.get('password').invalid && registration.get('password').touched"
+      >
+        <small *ngIf="registration.get('password').errors.required">Поле обязательно для заполнения</small>
+        <small *ngIf="registration.get('password').errors.pattern">Ваш пароль должен содержать минимум 8 символов, минимум одну заглавную и одну строчную букву и одну цифру. Используйте только буквы (a–z, A–Z) и цифры</small>
+      </div>
+      <p class="registration__fieldname">Повторите пароль</p>
+      <input [class.submitted]="submitted" type="password" class="registration__field" formControlName="passwordConfirmed" placeholder="Повторите пароль*">
+      <div
+        class="registration__validation"
+        *ngIf="registration.get('passwordConfirmed').errors && submitted"
+      >
+        <small *ngIf="registration.get('passwordConfirmed').errors.required">Поле обязательно для заполнения</small>
+      </div>
+      <div
+      class="registration__validation"
+      *ngIf="registration.get('passwordConfirmed').errors && registration.get('passwordConfirmed').touched"
+    >
+      <small *ngIf="registration.get('passwordConfirmed').errors.confirmThePassword">Пароли не совпадают</small>
+    </div>
+      <div [ngSwitch]="recovery">
+        <div *ngSwitchCase="'tel'">
+          <span class="registration__fieldname">Номер телефона</span>
+          <span class="registration__recovery" (click)="recovery = 'email'">Указать email</span>
+          <input [class.submitted]="submitted" type="tel" class="registration__field" formControlName="phone" placeholder="Введите ваш телефон">
+        </div>
+        <div *ngSwitchCase="'email'">
+          <span class="registration__fieldname">Резервный Email</span>
+          <span href="" class="registration__recovery" (click)="recovery = 'tel'">Указать телефон</span>
+          <input [class.submitted]="submitted" type="email" class="registration__field" formControlName="email" placeholder="Введите ваш email">
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="registration__button">Зарегестрироваться</button>
+  </form>
+</div>
+

@@ -1,0 +1,13 @@
+.auth {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: green;
+  &__container {
+    width: 400px;
+    position: absolute;
+    top: 45%;
+    right: 20%;
+    transform: translateY(-50%)
+  }
+}

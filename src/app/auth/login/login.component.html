@@ -1,0 +1,15 @@
+<div class="form__container">
+  <form class="main__form form" [formGroup]="form" (ngSubmit)="login()">
+    <h2 class="form__title">Авторизация</h2>
+    <div class="form__control">
+      <label>Имя аккаунта</label>
+      <input [(ngModel)]="accName" [class.submitted]="submitted" type="text" class="form__email" formControlName="accountName">
+    </div>
+    <div class="form__control">
+      <label>Пароль</label>
+      <input [(ngModel)]="password" [class.submitted]="submitted" type="password" class="form__password" formControlName="password">
+    </div>
+    <p class="form__error" *ngIf="error">{{error}}</p>
+    <button class="form__button" type="submit">Войти</button>
+  </form>
+</div>

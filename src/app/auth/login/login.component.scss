@@ -1,0 +1,51 @@
+.form{
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  &__title{
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+  }
+  &__control{
+    margin-bottom: 1rem;
+  }
+  & input{
+    color: white;
+    background-color: transparent;
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+    width: 100%;
+    height: 2.5rem;
+    font-size: 1.125rem;
+    line-height: 100%;
+    margin-bottom: 0.625rem;
+  }
+
+  & label{
+    color: white;
+    display: inline-block;
+    margin-bottom: 0.625rem;
+  }
+
+  &__error{
+    margin-bottom: 1rem;
+  }
+
+  &__button{
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+    width: 10rem;
+    height: 3rem;
+    margin: 0 auto;
+    transition: .3s all ease;
+    &:hover{
+      background-color: white;
+      color: green;
+    }
+  }
+}
