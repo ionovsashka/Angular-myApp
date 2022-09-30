@@ -8,13 +8,15 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { PersonalPageComponent } from './personal-page/personal-page.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthGuard } from './shared/services/auth.guard';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainLayoutComponent,
     HomePageComponent,
-    PersonalPageComponent
+    PersonalPageComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

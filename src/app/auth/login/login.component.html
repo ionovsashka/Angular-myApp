@@ -10,6 +10,7 @@
       <input [(ngModel)]="password" [class.submitted]="submitted" type="password" class="form__password" formControlName="password">
     </div>
     <p class="form__error" *ngIf="error">{{error}}</p>
+    <button [routerLink]="['/auth']" type="button" class="form__button back"><span>&#8592;</span>Назад</button>
     <button class="form__button" type="submit">Войти</button>
   </form>
 </div>

@@ -47,6 +47,7 @@
     right: 0;
   }
   &__button{
+    max-width: 180px;
     color: white;
     background-color: transparent;
     border: 1px solid white;
@@ -55,9 +56,21 @@
     position: absolute;
     right: 0;
     transition: .3s all ease;
+    &.back{
+      left: 0;
+      & span{
+        transition: .3s right ease;
+        position: relative;
+        right: 5%;
+        bottom: 2px;
+      }
+    }
     &:hover{
       background-color: white;
       color: green;
+      & span{
+        right: 7%;
+      }
     }
   }
 }

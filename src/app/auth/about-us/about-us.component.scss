@@ -1,0 +1,59 @@
+.about{
+  position: relative;
+  width: 500px;
+  color: white;
+  & h2{
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  & p{
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  & a{
+    padding: 0 10px;
+    font-size: 1.2rem;
+    color: white;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    width: 45%;
+    height: 60px;
+    background-color: transparent;
+    border: 2px solid white;
+    transition: .3s all ease;
+    & span{
+      position: absolute;
+      right: 10%;
+      transition: .3s right ease;
+    }
+    &.about__back{
+      width: 30%;
+      padding: 0 25px 0 7px;
+      left: 0;
+      justify-content: end;
+      & span{
+        left: 10%;
+        transition: .3s left ease;
+      }
+      &:hover{
+        & span{
+          left: 8%;
+        }
+      }
+    }
+    &:hover{
+      background-color: white;
+      color: green;
+      & span{
+        right: 8%;
+      }
+    }
+  }
+}

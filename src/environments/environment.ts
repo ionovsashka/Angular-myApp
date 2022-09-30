@@ -4,15 +4,6 @@
 
 export const environment = {
   production: false,
-  firebaseConfig: {
-    apiKey: "AIzaSyB4PGL8Lt7Rrj1vOxjEHkE-Tyf5ZAqnKA4",
-    authDomain: "findteamapp-b665d.firebaseapp.com",
-    databaseURL: "https://findteamapp-b665d-default-rtdb.firebaseio.com",
-    projectId: "findteamapp-b665d",
-    storageBucket: "findteamapp-b665d.appspot.com",
-    messagingSenderId: "665193908120",
-    appId: "1:665193908120:web:ae0061c0f0754f09accded"
-  }
 };
 
 /*

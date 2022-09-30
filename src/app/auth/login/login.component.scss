@@ -35,17 +35,30 @@
   }
 
   &__button{
+    position: absolute;
     background-color: transparent;
     border: 1px solid white;
     color: white;
     border-radius: 5px;
     width: 10rem;
     height: 3rem;
-    margin: 0 auto;
     transition: .3s all ease;
+    right: 0;
+    bottom: -20%;
+    &.back{
+      left: 0;
+      & span{
+        position: relative;
+        right: 4%;
+        transition: .3s right ease;
+      }
+    }
     &:hover{
       background-color: white;
       color: green;
+      & span{
+        right: 7%;
+      }
     }
   }
 }
