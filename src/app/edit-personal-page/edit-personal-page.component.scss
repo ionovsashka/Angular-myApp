@@ -1,0 +1,129 @@
+.edit {
+	&__body {
+    display: flex;
+	}
+
+	&__column {
+
+		&_l {
+      flex: 0 1 30%;
+      margin-right: 50px;
+      & img{
+        border-radius: 100%;
+        max-width: 100%;
+      }
+		}
+
+		&_b {
+      position: relative;
+      flex: 0 1 70%
+		}
+	}
+
+	&__signature {
+      margin: 20px 0px 15px 0px;
+      &:first-child{
+        margin: 0px 0px 15px 0px;
+      }
+    }
+
+	&__input {
+    width: 100%;
+    font-size: 1.5rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid gray;
+    transition: all .3s ease;
+    &:focus{
+      border-bottom: 2px solid green;
+    }
+	}
+
+  &__technologies{
+    display: flex;
+  }
+
+	&__technologies-list {
+    flex: 0 1 75.5%;
+    display: flex;
+	}
+
+	&__technology {
+    position: relative;
+    background-color: green;
+    color: white;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 20px;
+	}
+
+  &__button-delete{
+    flex: 0 1 24.5%;
+    height: 32px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 5px;
+    transition: .3s all ease;
+    &:hover{
+      background-color: black;
+      color: white;
+    }
+  }
+
+  &__add-technology{
+    display: flex;
+    margin: 0px 0px 15px 0px;
+  }
+
+  &__input-technology{
+    flex: 0 1 75%;
+    font-size: 1.5rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid gray;
+    transition: all .3s ease;
+    margin-right: 15px;
+    &:focus{
+      border-bottom: 2px solid green;
+    }
+  }
+
+  &__add-button{
+    flex: 0 1 25%;
+    background-color: transparent;
+    border: 2px solid green;
+    border-radius: 5px;
+    transition: .3s all ease;
+    &:hover{
+      background-color: green;
+      color: white;
+    }
+  }
+
+	&__add-info {
+    width: 100%;
+    min-height: 100px;
+    background-color: transparent;
+    border-bottom: 2px solid gray;
+    transition: .3s all ease;
+    margin-bottom: 15px;
+    &:focus{
+      border-bottom: 2px solid green;
+    }
+	}
+
+	&__button {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: transparent;
+    border: 2px solid green;
+    transition: .3s all ease;
+    border-radius: 5px;
+    width: 12rem;
+    height: 3rem;
+    &:hover{
+      background-color: green;
+      color: white;
+    }
+	}
+}
+

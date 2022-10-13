@@ -2,8 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserProfile } from 'firebase/auth';
 import { map, Observable } from 'rxjs';
-import { FbCreateResponse, User } from 'src/app/auth/shared/interfaces';
-import { environment } from 'src/environments/environment';
+import { FbCreateResponse,} from 'src/app/auth/shared/interfaces';
 
 @Injectable({
   providedIn: 'root'

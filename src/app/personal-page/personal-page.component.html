@@ -1,1 +1,24 @@
-<p>personal-page works!</p>
+<div class="personal">
+  <div class="personal__body">
+    <div class="personal__column_l">
+      <img src="https://w7.pngwing.com/pngs/841/727/png-transparent-computer-icons-user-profile-synonyms-and-antonyms-android-android-computer-wallpaper-monochrome-sphere.png" alt="">
+    </div>
+    <div class="personal__column_b">
+      <p class="personal__signature">Имя</p>
+      <div class="personal__name">{{name}}</div>
+      <p class="personal__signature">Фамилия</p>
+      <div class="personal__surname">{{surname}}</div>
+      <p class="personal__signature">Специальность</p>
+      <div class="personal__direction">{{direction}}</div>
+      <p class="personal__signature">Технологии, которыми ты владеешь</p>
+      <ul class="personal__technologies">
+        <li *ngFor="let technology of technologies" class="personal__technology"></li>
+      </ul>
+      <p class="personal__signature">Дополнительная информация</p>
+      <div class="personal__add-info">
+        <p>{{addInfo}}</p>
+      </div>
+      <button type="button" [routerLink]="['edit']" class="personal__button">Редактировать профиль</button>
+    </div>
+  </div>
+</div>

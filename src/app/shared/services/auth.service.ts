@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { map } from 'rxjs';
 
 @Injectable({
@@ -7,12 +8,11 @@ import { map } from 'rxjs';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   get token(): string{
     const expDate = new Date(localStorage.getItem('fb-token-time'))
     if(new Date() > expDate){
-      // this.logout()
       return null
     }
     return localStorage.getItem('fb-token')
@@ -28,6 +28,7 @@ export class AuthService {
 
   logout(){
     localStorage.clear()
+    this.router.navigate(['/auth'])
   }
 
   isAutenticated(): boolean{

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { EditPersonalPageComponent } from './edit-personal-page/edit-personal-page.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PersonalPageComponent } from './personal-page/personal-page.component';
@@ -11,6 +12,7 @@ const routes: Routes = [
     {path: '', redirectTo: '/', pathMatch: 'full'},
     {path: '', component: HomePageComponent},
     {path: 'account/:id', component: PersonalPageComponent},
+    {path: 'account/:id/edit', component: EditPersonalPageComponent}
   ]},
   {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
   {path: 'error', component: ErrorPageComponent},

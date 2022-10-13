@@ -1,0 +1,31 @@
+<div class="edit">
+  <form class="edit__body">
+    <div class="edit__column_l">
+      <img src="https://w7.pngwing.com/pngs/841/727/png-transparent-computer-icons-user-profile-synonyms-and-antonyms-android-android-computer-wallpaper-monochrome-sphere.png" alt="">
+    </div>
+    <div class="edit__column_b">
+      <p class="edit__signature">Имя</p>
+      <input [(ngModel)]="name" type="text" class="edit__input">
+      <p class="edit__signature">Фамилия</p>
+      <input [(ngModel)]="surname" type="text" class="edit__input">
+      <p class="edit__signature">Специальность</p>
+      <input [(ngModel)]="direction" type="text" class="edit__input">
+      <p class="edit__signature">Технологии, которыми ты владеешь</p>
+      <div class="edit__add-technology">
+        <input [(ngModel)]="technology" type="text" class="edit__input-technology">
+        <button (click)="addTechnology()" type="button" class="edit__add-button">Добавить умение</button>
+      </div>
+      <div class="edit__technologies">
+        <ul class="edit__technologies-list">
+          <li *ngFor="let technology of technologies" class="edit__technology">
+            {{technology}}
+          </li>
+        </ul>
+        <button (click)="deleteTechnology()" class="edit__button-delete">Удалить умение</button>
+      </div>
+      <p class="edit__signature">Дополнительная информация</p>
+      <textarea [(ngModel)]="addInfo" class="edit__add-info"></textarea>
+      <button type="button" [routerLink]="['edit']" class="edit__button">Сохранить изменения</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,86 @@
+.personal {
+  position: relative;
+
+  &__body {
+    display: flex;
+  }
+
+  &__column {
+
+    &_l {
+      margin-right: 50px;
+      flex: 0 1 30%;
+      & img{
+        border-radius: 100%;
+        max-width: 100%;
+      }
+    }
+
+    &_b {
+      flex: 0 1 70%;
+    }
+  }
+
+  &__signature{
+    margin: 20px 0px 15px 0px;
+    &:first-child{
+      margin: 0px 0px 15px 0px;
+    }
+  }
+
+  &__name {
+    font-size: 1.5rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid green;
+  }
+
+  &__surname {
+    font-size: 1.5rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid green;
+  }
+
+  &__direction {
+    font-size: 1.5rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid green;
+  }
+
+  &__technologies {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.5rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid green;
+  }
+
+  &__technology {
+    background-color: green;
+    color: white;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  &__add-info {
+    font-size: 1.5rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid green;
+    margin: 0px 0px 20px 0px;
+  }
+
+  &__button{
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    border: 2px solid green;
+    border-radius: 5px;
+    width: 12rem;
+    height: 3rem;
+    transition: .3s all ease;
+    &:hover{
+      background-color: green;
+      color: white;
+    }
+  }
+}

@@ -1,10 +1,3 @@
-export class User{
-  uid: string;
-  email: string;
-  displayName: string;
-  photoURL: string;
-  emailVerified: boolean;
-}
 export class UserProfile{
   name: string
   surname: string
@@ -12,9 +5,9 @@ export class UserProfile{
   password: string
   id?: string
   directionDev?: string
-  technologies?: string
+  technologies?: string[]
   personal?: string
-  addIngo?: string
+  addInfo?: string
   email?: string
   phone?: number
 }

@@ -1,2 +1,43 @@
-<p>main-layout works!</p>
-<router-outlet></router-outlet>
+<div class="wrapper">
+  <header class="header">
+    <header class="header">
+      <div class="header__container">
+        <div class="header__menu menu">
+          <a [routerLink]="['/']" class="menu__logo">findTeam</a>
+          <div class="menu__icon">
+            <span></span>
+          </div>
+          <nav class="menu__body">
+            <ul class="menu__list">
+              <li><a #menuButton (click)="openSubMenuList($event)" class="menu__link"><img src="https://w7.pngwing.com/pngs/841/727/png-transparent-computer-icons-user-profile-synonyms-and-antonyms-android-android-computer-wallpaper-monochrome-sphere.png" alt=""></a></li>
+              <li #subMenuList  *ngIf="openSubMenu">
+                <ul class="menu__sublist sublist">
+                  <li><a [routerLink]="['account', accName]" class="sublist__link">Вы вошли как <span>{{accName}}</span></a></li>
+                  <li>
+                    <ul class="sublist__user-data">
+                      <li><a [routerLink]="['account', accName]" class="sublist__link">Личный кабинет</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ul class="sublist__tools">
+                      <li><a [routerLink]="['/']" class="sublist__link">Настройки</a></li>
+                    </ul>
+                  </li>
+                  <li><a (click)="logout()" class="menu__sublink">Выйти</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+  </header>
+  <main class="main">
+    <router-outlet></router-outlet>
+  </main>
+  <footer class="footer">
+    <div class="footer__container">
+      Я футер
+    </div>
+  </footer>
+</div>

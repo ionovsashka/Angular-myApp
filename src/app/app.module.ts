@@ -9,6 +9,8 @@ import { PersonalPageComponent } from './personal-page/personal-page.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthGuard } from './shared/services/auth.guard';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { AuthService } from './shared/services/auth.service';
+import { EditPersonalPageComponent } from './edit-personal-page/edit-personal-page.component';
 
 @NgModule({
   declarations: [
@@ -16,14 +18,15 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     MainLayoutComponent,
     HomePageComponent,
     PersonalPageComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    EditPersonalPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
   ],
-  providers:[AuthGuard],
+  providers:[AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
