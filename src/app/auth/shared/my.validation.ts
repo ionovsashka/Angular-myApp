@@ -64,7 +64,8 @@ export class MyValidators{
 static LoginMatch(authService: AuthService){
   return function (control: FormControl): Promise<any> | Observable<any> {
     return new Promise<any>((resolve) => {
-      authService.getUsers().subscribe((response) => {
+      authService.getUsers().subscribe((responseObj) => {
+        let response = (Object.values(responseObj))
         let userWithThisName = response.find((user) => {
           return user.accName == control.value.toString()
         })

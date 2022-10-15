@@ -46,7 +46,10 @@ export class RegistrationBaseComponent implements OnInit {
       name: this.registration.get('name').value,
       surname: this.registration.get('surname').value,
       accName: this.registration.get('accName').value,
-      password: this.registration.get('passwordConfirmed').value
+      password: this.registration.get('passwordConfirmed').value,
+      direction: '',
+      technologies: new Array(),
+      addInfo: ''
     }
 
     this.users.create(user).subscribe(() => {

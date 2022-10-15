@@ -17,7 +17,8 @@ export class PersonalPageComponent implements OnInit {
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
-    this.auth.getUsers().subscribe((response) => {
+    this.auth.getUsers().subscribe((responseObj) => {
+      let response = (Object.values(responseObj))
       let user = response.find((user) => {
         return user.accName == localStorage.getItem('login')
       })

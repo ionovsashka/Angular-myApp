@@ -1,4 +1,5 @@
 export class UserProfile{
+  img: string
   name: string
   surname: string
   accName: string

@@ -35,11 +35,11 @@ export class LoginComponent implements OnInit {
       return
     }
 
-    this.authService.getUsers().subscribe((response) => {
+    this.authService.getUsers().subscribe((responseObj) => {
+      let response = (Object.values(responseObj))
       let userWithThisName = response.find((user) => {
         return user.accName == this.form.get('accountName').value
       })
-      console.log(userWithThisName);
       if(userWithThisName && userWithThisName.password == this.form.get('password').value){
         this.submitted = false
         this.router.navigate(['/'])

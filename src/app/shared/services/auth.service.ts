@@ -22,7 +22,7 @@ export class AuthService {
   getUsers(){
     return this.http.get('https://findteam-808e2-default-rtdb.firebaseio.com/users.json')
       .pipe(map((response:{[key: string]: any}) => {
-        return (Object.values(response));
+        return response;
       }))
   }
 

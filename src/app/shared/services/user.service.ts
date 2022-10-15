@@ -23,4 +23,9 @@ export class UserService {
         })
       )
   }
+
+  updateUsers(updatingUser: UserProfile, id: string): Observable<UserProfile>{
+    console.log(updatingUser);
+    return this.http.put<UserProfile>(`https://findteam-808e2-default-rtdb.firebaseio.com/users/${id}.json`, updatingUser)
+  }
 }
