@@ -11,11 +11,6 @@
       align-items: center;
       flex: 0 1 30%;
       margin-right: 50px;
-      & img{
-        border-radius: 100%;
-        max-width: 100%;
-        margin-bottom: 10px;
-      }
       & input{
         display: none;
       }
@@ -28,6 +23,17 @@
       flex: 0 1 70%
 		}
 	}
+
+  &__img{
+    max-width: 100%;
+    max-height: 60%;
+    margin: 0px 0px 20px 0px;
+    & img{
+      border-radius: 100%;
+      width: 100%;
+      height: 100%;
+    }
+  }
 
 	&__signature {
       margin: 20px 0px 15px 0px;
@@ -47,6 +53,10 @@
     }
 	}
 
+  &__form{
+    width: 100%;
+  }
+
   &__technologies{
     display: flex;
   }
@@ -64,6 +74,18 @@
     padding: 10px;
     border-radius: 20px;
 	}
+
+  &__button_img{
+    padding: 7px;
+    background-color: transparent;
+    border: 2px solid green;
+    border-radius: 5px;
+    transition: .3s all ease;
+    &:hover{
+      background-color: green;
+      color: white;
+    }
+  }
 
   &__button-delete{
     flex: 0 1 24.5%;
@@ -135,4 +157,78 @@
       color: white;
     }
 	}
+}
+
+.modal {
+  font-size: 1.5rem;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: rgba(80, 80, 80, .7);
+  &__container {
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: white;
+    position: absolute;
+    z-index: 11;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+  }
+
+  &__header {
+    background-color: green;
+  }
+
+  &__header-container{
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__text {
+    color: white;
+  }
+
+  &__close {
+    background-color: transparent;
+
+  }
+
+  &__cropper{
+    max-width: 100%;
+  }
+
+  &__body {
+    max-width: 570px;
+    margin: 0 auto;
+    & image-cropper{
+      height: 650px;
+      padding: 0;
+    }
+  }
+
+  &__footer {
+    padding: 15px 0;
+    background-color: green;
+  }
+
+  &__save-img {
+    border-radius: 10px;
+    font-size: 1.5rem;
+    width: 100%;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 10px;
+    transition: all .3s ease;
+    &:hover{
+      background-color: white;
+      color: green;
+    }
+  }
 }

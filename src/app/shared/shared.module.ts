@@ -3,16 +3,20 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { AuthService } from "./services/auth.service";
 
+import { ImageCropperModule } from "ngx-image-cropper";
+
 @NgModule({
   imports:[
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ImageCropperModule
   ],
   exports:[
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ImageCropperModule
   ],
   providers:[AuthService]
 })

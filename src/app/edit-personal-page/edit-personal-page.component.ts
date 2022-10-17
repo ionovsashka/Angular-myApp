@@ -2,6 +2,8 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserProfile } from 'firebase/auth';
+import { ImageCroppedEvent } from 'ngx-image-cropper';
+import { MainLayoutComponent } from '../shared/components/main-layout/main-layout.component';
 import { AuthService } from '../shared/services/auth.service';
 import { UserService } from '../shared/services/user.service';
 
@@ -12,12 +14,16 @@ import { UserService } from '../shared/services/user.service';
 })
 export class EditPersonalPageComponent implements OnInit {
 
-
+  @ViewChild('input') input: ElementRef
+  modalOpen = false
+  imgChangeEvt: any = ''
+  cropImgPreview: any = ''
   form: FormGroup
   id: string
+  img: string
   oldUser: UserProfile
 
-  constructor(private auth: AuthService, private user: UserService, private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private auth: AuthService, private user: UserService, private router: Router, private formBuilder: FormBuilder, private main: MainLayoutComponent) { }
 
   ngOnInit(): void {
     this.auth.getUsers().subscribe((responseObj) => {
@@ -32,6 +38,7 @@ export class EditPersonalPageComponent implements OnInit {
         return user.accName == localStorage.getItem('login')
       })
       this.oldUser = user
+      this.img = user.img
       this.form = this.formBuilder.group({
         name: this.formBuilder.control(user.name ? user.name : '', Validators.required),
         surname: this.formBuilder.control(user.surname ? user.surname : '', Validators.required),
@@ -55,12 +62,13 @@ export class EditPersonalPageComponent implements OnInit {
   }
 
   triggerClick(){
-
+    this.input.nativeElement.click()
   }
 
   submit(){
       const updatingUser = {
         ...this.oldUser,
+        img: this.img,
         name: this.form.get('name').value,
         surname: this.form.get('surname').value,
         direction: this.form.get('direction').value,
@@ -68,9 +76,37 @@ export class EditPersonalPageComponent implements OnInit {
         addInfo: this.form.get('addInfo').value
       }
       this.user.updateUsers(updatingUser, this.id).subscribe(() => {
+        this.main.img = this.img
         this.router.navigate(['account', localStorage.getItem('login')])
-        console.log(updatingUser);
       })
   }
 
+  onFileChanged(event:any){
+    this.modalOpen = true
+    this.imgChangeEvt = event
+  }
+
+  cropImg(e: ImageCroppedEvent){
+    this.cropImgPreview = e.base64
+  }
+
+  imgLoad(){
+  }
+
+  initCropper(){
+  }
+
+  imgFailed(){
+    alert("Image Failed to show")
+  }
+
+  closeModal(){
+    this.cropImgPreview = ''
+    this.modalOpen = false
+  }
+
+  updateImage(){
+      this.img = this.cropImgPreview
+      this.modalOpen = false
+  }
 }

@@ -8,6 +8,8 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class PersonalPageComponent implements OnInit {
 
+  loading = false
+  img: string
   name:string
   surname: string
   direction: string
@@ -22,6 +24,7 @@ export class PersonalPageComponent implements OnInit {
       let user = response.find((user) => {
         return user.accName == localStorage.getItem('login')
       })
+      this.img = user.img
       this.name = user.name
       this.surname = user.surname
       this.direction = user.direction
@@ -29,5 +32,6 @@ export class PersonalPageComponent implements OnInit {
       this.addInfo = user.addInfo
     })
   }
+
 
 }

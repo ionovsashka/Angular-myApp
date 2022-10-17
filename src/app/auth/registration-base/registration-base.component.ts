@@ -43,6 +43,7 @@ export class RegistrationBaseComponent implements OnInit {
     }
 
     const user: UserProfile = {
+      img: 'https://w7.pngwing.com/pngs/841/727/png-transparent-computer-icons-user-profile-synonyms-and-antonyms-android-android-computer-wallpaper-monochrome-sphere.png',
       name: this.registration.get('name').value,
       surname: this.registration.get('surname').value,
       accName: this.registration.get('accName').value,

@@ -1,33 +1,61 @@
 <div class="edit">
+  <div *ngIf="modalOpen" class="edit__modal modal">
+    <div class="modal__container">
+      <div class="modal__header">
+        <div class="modal__body">
+          <div class="modal__header-container">
+            <p class="modal__text">Обрежьте новую фотографию профиля</p>
+            <button (click)="closeModal()" class="modal__close"><img src="https://upload.wikimedia.org/wikipedia/en/6/61/Cross_icon_%28white%29.svg" alt=""></button>
+          </div>
+        </div>
+      </div>
+      <div class="modal__cropper">
+        <div class="modal__body">
+          <image-cropper [roundCropper]="true" [imageChangedEvent]="imgChangeEvt" [aspectRatio]="2/2" [maintainAspectRatio]="true" [resizeToWidth]="1024" format="png" (imageCropped)="cropImg($event)" (imageLoaded)="imgLoad()" (cropperReady)="initCropper()" (loadImageFailed)="imgFailed()">
+          </image-cropper>
+        </div>
+      </div>
+      <div class="modal__footer">
+        <div class="modal__body">
+          <button (click)="updateImage()" class="modal__save-img">Сохранить изображение</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="edit__body">
     <div class="edit__column_l">
-      <img src="https://w7.pngwing.com/pngs/841/727/png-transparent-computer-icons-user-profile-synonyms-and-antonyms-android-android-computer-wallpaper-monochrome-sphere.png" alt="">
-      <input #input type="file">
-      <button (click)="triggerClick()" type="button" class="edit__button_img">Загрузить изображение</button>
+      <div class="edit__img">
+        <img [src]="img" alt="">
+      </div>
+      <input (change)="onFileChanged($event)" #input type="file">
+      <button (click)="triggerClick()" type="button" class="edit__button_img">Выбрать фото</button>
     </div>
-    <form *ngIf="form" [formGroup]="form" (ngSubmit)="submit()" class="edit__column_b">
-      <p class="edit__signature">Имя</p>
-      <input formControlName = "name" type="text" class="edit__input">
-      <p class="edit__signature">Фамилия</p>
-      <input formControlName = "surname" type="text" class="edit__input">
-      <p class="edit__signature">Специальность</p>
-      <input formControlName = "direction" type="text" class="edit__input">
-      <p class="edit__signature">Технологии, которыми ты владеешь</p>
-      <div class="edit__add-technology">
-        <input formControlName = "technology" type="text" class="edit__input-technology">
-        <button (click)="addTechnology()" type="button" class="edit__add-button">Добавить умение</button>
-      </div>
-      <div class="edit__technologies">
-        <ul class="edit__technologies-list">
-          <li *ngFor="let technology of form.get('technologies')['controls']" class="edit__technology">
-            {{technology.value}}
-          </li>
-        </ul>
-        <button type="button" (click)="deleteTechnology()" class="edit__button-delete">Удалить умение</button>
-      </div>
-      <p class="edit__signature">Дополнительная информация</p>
-      <textarea formControlName = "addInfo" class="edit__add-info"></textarea>
-      <button type="submit" class="edit__button">Сохранить изменения</button>
-    </form>
+    <div class="edit__column_b">
+      <form *ngIf="form" [formGroup]="form" (ngSubmit)="submit()" class="edit__form">
+        <p class="edit__signature">Имя</p>
+        <input formControlName = "name" type="text" class="edit__input">
+        <p class="edit__signature">Фамилия</p>
+        <input formControlName = "surname" type="text" class="edit__input">
+        <p class="edit__signature">Специальность</p>
+        <input formControlName = "direction" type="text" class="edit__input">
+        <p class="edit__signature">Технологии, которыми ты владеешь</p>
+        <div class="edit__add-technology">
+          <input formControlName = "technology" type="text" class="edit__input-technology">
+          <button (click)="addTechnology()" type="button" class="edit__add-button">Добавить умение</button>
+        </div>
+        <div class="edit__technologies">
+          <ul class="edit__technologies-list">
+            <li *ngFor="let technology of form.get('technologies')['controls']" class="edit__technology">
+              {{technology.value}}
+            </li>
+          </ul>
+          <button type="button" (click)="deleteTechnology()" class="edit__button-delete">Удалить умение</button>
+        </div>
+        <p class="edit__signature">Дополнительная информация</p>
+        <textarea formControlName = "addInfo" class="edit__add-info"></textarea>
+        <button type="submit" class="edit__button">Сохранить изменения</button>
+      </form>
+    </div>
   </div>
 </div>
+

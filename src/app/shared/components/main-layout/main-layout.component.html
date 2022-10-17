@@ -9,7 +9,7 @@
           </div>
           <nav class="menu__body">
             <ul class="menu__list">
-              <li><a #menuButton (click)="openSubMenuList($event)" class="menu__link"><img src="https://w7.pngwing.com/pngs/841/727/png-transparent-computer-icons-user-profile-synonyms-and-antonyms-android-android-computer-wallpaper-monochrome-sphere.png" alt=""></a></li>
+              <li><a #menuButton (click)="openSubMenuList($event)" class="menu__link"><img [src]="img" alt=""></a></li>
               <li #subMenuList  *ngIf="openSubMenu">
                 <ul class="menu__sublist sublist">
                   <li><a [routerLink]="['account', accName]" class="sublist__link">Вы вошли как <span>{{accName}}</span></a></li>
@@ -33,7 +33,7 @@
     </header>
   </header>
   <main class="main">
-    <router-outlet></router-outlet>
+    <router-outlet *ngIf="!loading;else loader"></router-outlet>
   </main>
   <footer class="footer">
     <div class="footer__container">
@@ -41,3 +41,9 @@
     </div>
   </footer>
 </div>
+
+<ng-template #loader>
+  <div class="loading">
+    <p>Загрузка...</p>
+  </div>
+</ng-template>
