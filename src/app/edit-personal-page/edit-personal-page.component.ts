@@ -15,6 +15,7 @@ import { UserService } from '../shared/services/user.service';
 export class EditPersonalPageComponent implements OnInit {
 
   @ViewChild('input') input: ElementRef
+  loading = false
   modalOpen = false
   imgChangeEvt: any = ''
   cropImgPreview: any = ''
@@ -26,6 +27,7 @@ export class EditPersonalPageComponent implements OnInit {
   constructor(private auth: AuthService, private user: UserService, private router: Router, private formBuilder: FormBuilder, private main: MainLayoutComponent) { }
 
   ngOnInit(): void {
+    this.loading = true
     this.auth.getUsers().subscribe((responseObj) => {
       for(let key in responseObj){
         if(responseObj[key].accName === localStorage.getItem('login')){
@@ -47,6 +49,7 @@ export class EditPersonalPageComponent implements OnInit {
         technology: this.formBuilder.control('', Validators.required),
         addInfo: this.formBuilder.control(user.addInfo ? user.addInfo : '')
       })
+      this.loading = false
     })
   }
 
@@ -66,6 +69,7 @@ export class EditPersonalPageComponent implements OnInit {
   }
 
   submit(){
+      this.loading = true
       const updatingUser = {
         ...this.oldUser,
         img: this.img,

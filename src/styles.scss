@@ -42,3 +42,34 @@ body {
   font-size: 1rem;
 }
 
+
+.loading__container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  z-index: -20;
+}
+
+.loading{
+  width: 130px;
+  height: 130px;
+  border-radius: 100%;
+  border: 10px solid rgba(80, 80, 80, .2);
+  border-top: 10px solid green;
+  animation: loading 2s infinite linear;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}

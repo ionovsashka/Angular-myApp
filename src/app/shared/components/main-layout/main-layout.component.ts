@@ -19,7 +19,7 @@ export class MainLayoutComponent implements OnInit, AfterContentInit {
   openSubMenu = false
   img:string
 
-  constructor(private auth: AuthService, private renderer: Renderer2) {
+  constructor(private auth: AuthService) {
   }
 
   ngOnInit(): void {

@@ -1,4 +1,4 @@
-<div class="edit">
+<div *ngIf="!loading;else loader" class="edit">
   <div *ngIf="modalOpen" class="edit__modal modal">
     <div class="modal__container">
       <div class="modal__header">
@@ -58,4 +58,9 @@
     </div>
   </div>
 </div>
-
+<ng-template #loader>
+  <div class="loading__container">
+    <div class="loading">
+    </div>
+  </div>
+</ng-template>

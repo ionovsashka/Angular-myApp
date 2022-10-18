@@ -19,6 +19,7 @@ export class PersonalPageComponent implements OnInit {
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.loading = true
     this.auth.getUsers().subscribe((responseObj) => {
       let response = (Object.values(responseObj))
       let user = response.find((user) => {
@@ -30,6 +31,7 @@ export class PersonalPageComponent implements OnInit {
       this.direction = user.direction
       this.technologies = user.technologies
       this.addInfo = user.addInfo
+      this.loading = false
     })
   }
 
